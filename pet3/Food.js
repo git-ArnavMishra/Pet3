@@ -5,14 +5,14 @@ class Food {
 
   }
   getFoodStock(){
-
+    return foodStock;
   }
-  updateFoodStock(){
-
+  updateFoodStock(mystock){
+     foodStock = mystock;
   }
   deductFood(){
-      
-}
+    foodStock--;
+  }
 display(){
     var x = 80, y = 100;
     imageMode(CENTER);
