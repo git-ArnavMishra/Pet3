@@ -13,6 +13,9 @@ class Food {
   deductFood(){
     foodStock--;
   }
+  updateLastfed(lfed){
+    lastFed = lfed;
+  }
 display(){
     var x = 80, y = 100;
     imageMode(CENTER);
