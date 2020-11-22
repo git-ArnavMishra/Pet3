@@ -3,7 +3,20 @@ class Food {
     var foodStock = 10;
     var lastFed;
     this.image = loadImage("Sprites/milk.png");
+    this.bedroom = loadImage("Sprites/Bed Room.png");
+    this.garden = loadImage("Sprites/Garden.png");
+    this.washroom = loadImage("Sprites/Wash Room.png");
   }
+  bedroom (){
+    background(this.bedroom);
+  }
+  garden (){
+    background(this.garden);
+  }
+  washroom (){
+    background(this.washroom);
+  }
+  
   
   getFoodStock(){
     return this.foodStock;
