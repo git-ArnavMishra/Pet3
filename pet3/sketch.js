@@ -1,5 +1,5 @@
 //Create variables here
-var dog, happyDog, database, foodS, foodStock, mydog;
+var dog, happyDog, database, foodS = 0, foodStock, mydog;
 var database;
 var feed;
 var foodObj
@@ -19,8 +19,8 @@ function preload() {
   bedRM = loadImage("Sprites/Dog.png");
 }
 function setup() {
-  createCanvas(500, 500);
-  dog = createSprite(250, 250, 40, 40);
+  createCanvas(1000, 756);
+  dog = createSprite(800, 250, 40, 40);
   mydog.resize(100, 100);
   happyDog.resize(100, 100);
   dog.addImage(mydog);
@@ -43,13 +43,18 @@ function addFoods() {
   database.ref('/').update({
     Food: foodS
   })
+  foodObj.updateFoodStock(foodS);
 }
 function feedDog() {
   dog.addImage(happyDog);
 
   foodObj.updateFoodStock(foodObj.getFoodStock() - 1);
   database.ref('/').update({
-    Food: foodObj.getFoodStock(),
+    //Food: foodObj.getFoodStock()
+    Food: foodObj.getFoodStock() - 1
+  })
+  database.ref('/').update({
+    //Food: foodObj.getFoodStock()
     FeedTime: hour()
   })
 }
@@ -72,8 +77,9 @@ function draw() {
     text("Last Feed : 12 AM", 350, 30);
   }
   else {
-    text("Last Feed : " + lastfed + "AM", 350, 30);
+    text("Last Feed : " + lastFed + "AM", 350, 30);
   }
+  
   drawSprites();
 }
 // function to read value in DB;

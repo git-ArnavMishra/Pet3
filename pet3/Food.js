@@ -1,24 +1,27 @@
 class Food {
   constructor(){
-    var foodStock;
+    var foodStock = 10;
     var lastFed;
-
+    this.image = loadImage("Sprites/milk.png");
   }
+  
   getFoodStock(){
-    return foodStock;
+    return this.foodStock;
   }
   updateFoodStock(mystock){
-     foodStock = mystock;
+     this.foodStock = mystock;
   }
   deductFood(){
-    foodStock--;
+    this.foodStock--;
   }
   updateLastfed(lfed){
-    lastFed = lfed;
+    this.lastFed = lfed;
   }
 display(){
     var x = 80, y = 100;
     imageMode(CENTER);
+    //this.foodStock = 20;
+
     image(this.image,720,220,70,70);
     if(this.foodStock!=0){
         for(var i=0;i<this.foodStock;i++){
